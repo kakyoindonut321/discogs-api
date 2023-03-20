@@ -1,1 +1,4 @@
-export const THE_API_KEY = "";
+export const API_CODE = {
+    key: "vdllPpJUiGgdknayWciy",
+    secret: "vOhXuzHGbUybRKLpPKwHOkGNnMEsNwok"
+};

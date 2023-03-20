@@ -1,5 +1,8 @@
 .main {}
 
+
+/* background */
+
 .mountain svg {
     position: absolute;
     bottom: 0;
@@ -9,6 +12,21 @@
 .mountain svg:nth-child(1) {
     background-image: linear-gradient(to bottom, transparent, grey);
 }
+
+.titleScreen {
+    margin-top: 10%;
+    text-align: center;
+    opacity: 0;
+    animation: titleStart 2s forwards;
+}
+
+
+/* .titleDisclaimer {
+    font-size: 6px;
+    text-align: center;
+    opacity: 0;
+    animation: titleStart 2s forwards 2s;
+} */
 
 
 /* SEARCH */
@@ -26,17 +44,17 @@
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     border-right: hidden;
+    font-size: 20px;
     background-color: transparent;
     padding: 10px;
     animation: start 1s forwards;
-    transition: box-shadow .5s ease;
     color: #eeeeee;
+    transition: box-shadow .5s ease;
 }
 
 .searchCon input:focus {
     outline: none;
     border-color: #eeeeee;
-    width: 320px;
     box-shadow: 0px 0px 3px #eeeeee;
 }
 
@@ -68,6 +86,50 @@
 }
 
 
+/* loading */
+
+.loading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.spinnerBox {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.pulseContainer {
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pulseContainer div {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #cfcfcf;
+}
+
+.pbOne {
+    animation: pulse .4s ease 0s infinite alternate;
+}
+
+.pbTwo {
+    animation: pulse .4s ease .2s infinite alternate;
+}
+
+.pbThree {
+    animation: pulse .4s ease .4s infinite alternate;
+}
+
+
 /* RESULTS */
 
 .parentResult {
@@ -78,10 +140,11 @@
 .resultCon {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     width: 10%;
     margin: 5%;
-    padding: 3%;
+    padding: 10px;
+    padding-top: 20px;
     margin-bottom: 40%;
     border: 2px solid white;
     border-radius: 20px;
@@ -94,14 +157,67 @@
 /* card css */
 
 .card {
-    width: 200px;
-    height: 300px;
+    width: 250px;
+    /* height: 300px; */
+    margin: 10px;
     padding: 5px;
-    border: 2px solid #cfcfcf;
+    /* border: 2px solid #cfcfcfaa; */
+    border-radius: 10px;
+    transition: box-shadow .3s ease;
 }
 
 .card img {
     width: 100%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.cardDesc {
+    position: relative;
+    height: 100px;
+    overflow-y: auto;
+}
+
+.cardDesc::-webkit-scrollbar {
+    width: 5px;
+}
+
+.cardDesc::-webkit-scrollbar-track {
+    background-color: transparent;
+    /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+}
+
+.cardDesc::-webkit-scrollbar-thumb {
+    background-color: #cfcfcf;
+}
+
+
+/* .cardDesc hr {
+    background-color: #ccccccaa;
+    border-color: #ccccccaa;
+    border-style: solid;
+    width: 20px;
+    box-shadow: 0px 1px 2px black;
+} */
+
+.cardLink {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #efefef;
+    color: black;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.cardLink:hover {
+    background-color: #cfcfcf;
+}
+
+.card:hover {
+    box-shadow: 0px 0px 5px white;
 }
 
 
@@ -119,4 +235,71 @@
     }
 }
 
-media
+@keyframes titleStart {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: .25;
+        transform: scale(.75);
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .card {
+        width: 200px;
+        padding: 3px;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    .card {
+        width: 250px;
+        padding: 3px;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .card {
+        width: 200px;
+        padding: 3px;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .card {
+        width: 150px;
+        padding: 3px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card {
+        width: 130px;
+        padding: 3px;
+    }
+    .cardDesc {
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .card {
+        width: 170px;
+        padding: 3px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .card {
+        width: 140px;
+        padding: 3px;
+    }
+}

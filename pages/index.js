@@ -2,26 +2,33 @@ import Head from 'next/head'
 import Mountain from '../components/decorations/Mountain'
 import Search from '../components/Search'
 import Result from '../components/Result'
+import Loading from '../components/decorations/Loading'
 // import Image from 'next/image'
 // import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import {API_CODE} from "../key.js"
 import { useEffect, useState } from 'react';
 import axios from "axios";
 
 
 
 export default function Home() {
-  const queer = "nirvana", 
-        keys = "vdllPpJUiGgdknayWciy", 
-        secret = "vOhXuzHGbUybRKLpPKwHOkGNnMEsNwok";
-  const url = `https://api.discogs.com/database/search?q=${queer}&key=${keys}&secret=${secret}`
-  const fetchData = (e) => {
+  const [resulting, setResult] = useState();
+  const [loading, setLoading] = useState();
+
+
+  // GET DATA FROM API, SPAWN THE RESULT COMPONENT WHEN THE DATA HAS LOADED
+  const fetchData = (queryInput, e) => {
     e.preventDefault();
-    // setLoading(true);
+    const url = `https://api.discogs.com/database/search?q=${queryInput}&key=${API_CODE.key}&secret=${API_CODE.secret}`
+    setLoading(<Loading></Loading>);
     axios.get(url).then((response) => {
       console.log(response);
+      setLoading();
+      setResult(<Result queries={ response }></Result>)
     });
   };
+
   return (
     <>
       <Head>
@@ -30,8 +37,11 @@ export default function Home() {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className={styles.main}>
-        <Search></Search>
-        <Result></Result>
+        <h1 className={styles.titleScreen}>Discogs API <br/> Search your favorite band, album, or song here</h1>
+        {/* <p className={styles.titleDisclaimer}>no it's discogs not discord</p> */}
+        <Search onSearch={fetchData}></Search>
+        { loading }
+        { resulting }
       </main>
       <Mountain ></Mountain>
     </>
