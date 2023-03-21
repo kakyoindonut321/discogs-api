@@ -4,7 +4,7 @@ export default function Modal({ data }) {
     return (
         <>
         <div className={styles.modal}>
-
+            I can't get no satisfaction
         </div>
         </>
     )

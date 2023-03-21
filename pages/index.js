@@ -9,18 +9,21 @@ import styles from '@/styles/Home.module.css'
 import {API_CODE} from "../key.js"
 import { useEffect, useState } from 'react';
 import axios from "axios";
+import Modal from '../components/Modal'
+
 
 
 
 export default function Home() {
   const [resulting, setResult] = useState();
   const [loading, setLoading] = useState();
-
+  const [requestType, setRequestType] = useState('');
 
   // GET DATA FROM API, SPAWN THE RESULT COMPONENT WHEN THE DATA HAS LOADED
   const fetchData = (queryInput, e) => {
     e.preventDefault();
     const url = `https://api.discogs.com/database/search?q=${queryInput}&key=${API_CODE.key}&secret=${API_CODE.secret}`
+    setResult()
     setLoading(<Loading></Loading>);
     axios.get(url).then((response) => {
       console.log(response);
@@ -42,6 +45,8 @@ export default function Home() {
         <Search onSearch={fetchData}></Search>
         { loading }
         { resulting }
+        {/* <Modal></Modal> */}
+        {/* { Modal } */}
       </main>
       <Mountain ></Mountain>
     </>
