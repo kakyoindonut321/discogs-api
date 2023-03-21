@@ -82,7 +82,7 @@ export default function Modal({ data, onClose }) {
                         <div className={styles.modalTitle}>
                             <h1>{data[0].data.name === undefined ? "Undocumented" : data[0].data.name}</h1>
                             <p>Contact info: {data[0].data.contact_info === undefined ? "Undocumented" : data[0].data.contact_info} </p>
-                            {data[0].data.sublabels[1] === undefined ? <p>Sublabels: {data[0].data.sublabels[0]}</p> : <ul>Genres: { data[0].data.sublabels.map((item, i) => {
+                            {data[0].data.sublabels[1] === undefined ? "" : <ul>Genres: { data[0].data.sublabels.map((item, i) => {
                             return <li key={i}>{item.name}, </li> })}</ul>}
                         </div>
                     </div>
