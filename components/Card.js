@@ -2,18 +2,18 @@ import styles from '@/styles/Home.module.css'
 // import Image from 'next/image'
 
 export default function Card({ value, onModal }) {
-    const spacerGif = "https://st.discogs.com/ca7987480edf1ba816aab73e71dbdbc2add85fed/images/spacer.gif"
+    const spacerGif = "spacer.gif"
     return (
         <>
         <div className={styles.card}>
-            <img src={value.cover_image == spacerGif ? '/placeholder.png' : value.cover_image} alt="" loading="lazy" />
+            <img src={value.cover_image.slice(-10) == spacerGif ? '/placeholder.png' : value.cover_image} alt="" loading="lazy" />
             <div className={styles.cardDesc}>
                 <hr/>
                 <h3>{value.title}</h3>
                 <p>Type: <span>{value.type}</span></p>
             </div>
             <div className={styles.cardLinkFill}></div>
-            <button className={styles.cardLink} onClick={(e) => {onModal(value.resource_url, e)}}>Detail</button>
+            <button className={styles.cardLink} onClick={(e) => {onModal(value.resource_url, value.type, e)}}>Detail</button>
         </div>
         </>
     )
