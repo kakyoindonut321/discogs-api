@@ -13,14 +13,16 @@ export default function Modal({ data, onClose }) {
               <div className={styles.modal}>
                 <div className={styles.modalContent}>
                     <div className={styles.modalTitleImg}>
-                        <img src={data[0].data.images[0].uri === undefined ? '/placeholder.png' : data[0].data.images[0].uri} alt=""/>
+                        <img src={data[0].data.images === undefined ? '/placeholder.png' : data[0].data.images[0].uri} alt=""/>
                         <div className={styles.modalTitle}>
-                            <h1>{data[0].data.name === undefined ? "Undocumented" : data[0].data.name}</h1>
+                            <h1>{data[0].data.name === undefined ? "Name undocumented" : data[0].data.name}</h1>
                             {data[0].data.members === undefined ? "" : <ul>Members: { data[0].data.members.map((item, i) => {
                                 return <li key={i}>{item.name}</li> })}</ul>}
                         </div>
                     </div>
                     <p className={styles.modalDesc}>{data[0].data.profile === undefined ? "Undocumented" : data[0].data.profile}</p>
+                    {data[0].data.urls === undefined ? "no official account" : <ul className={styles.modalLink}>Official Account: { data[0].data.urls.map((item, i) => {
+                    return <li key={i}><a href={item}>{item}</a></li> })}</ul>}
                 </div>
                 <button className={styles.modalButton} onClick={onClose}>Close</button>
               </div>
@@ -32,13 +34,13 @@ export default function Modal({ data, onClose }) {
               <div className={styles.modal}>
                 <div className={styles.modalContent}>
                     <div className={styles.modalTitleImg}>
-                        <img src={data[0].data.images[0].uri === undefined ? '/placeholder.png' : data[0].data.images[0].uri} alt=""/>
+                        <img src={data[0].data.images === undefined ? '/placeholder.png' : data[0].data.images[0].uri} alt=""/>
                         <div className={styles.modalTitle}>
                             <h1>{data[0].data.title === undefined ? "Undocumented" : data[0].data.title}</h1>
                             <p>Artist: {data[0].data.artists[0].name === undefined ? "Undocumented" : data[0].data.artists[0].name}</p>
                             <p>Year: {data[0].data.year === undefined ? "Undocumented" : data[0].data.year} </p>
                             {data[0].data.genres[1] === undefined ? <p>Genre: {data[0].data.genres[0]}</p> : <ul>Genres: { data[0].data.genres.map((item, i) => {
-                            return <li key={i}>{item}, </li> })}</ul>}
+                            return <li key={i}>{item}</li> })}</ul>}
                         </div>
                     </div>
                     <p>{data[0].data.notes === undefined ? "Undocumented" : data[0].data.notes}</p>
@@ -55,7 +57,7 @@ export default function Modal({ data, onClose }) {
               <div className={styles.modal}>
                 <div className={styles.modalContent}>
                     <div className={styles.modalTitleImg}>
-                        <img src={data[0].data.images[0].uri === undefined ? '/placeholder.png' : data[0].data.images[0].uri} alt=""/>
+                        <img src={data[0].data.images === undefined ? '/placeholder.png' : data[0].data.images[0].uri} alt=""/>
                         <div className={styles.modalTitle}>
                             <h1>{data[0].data.title === undefined ? "Undocumented" : data[0].data.title}</h1>
                             <p>Artist: {data[0].data.artists[0].name === undefined ? "Undocumented" : data[0].data.artists[0].name}</p>
@@ -78,11 +80,11 @@ export default function Modal({ data, onClose }) {
               <div className={styles.modal}>
                 <div className={styles.modalContent}>
                     <div className={styles.modalTitleImg}>
-                        <img src={data[0].data.images[0].uri === undefined ? '/placeholder.png' : data[0].data.images[0].uri} alt=""/>
+                        <img src={data[0].data.images === undefined ? '/placeholder.png' : data[0].data.images[0].uri} alt=""/>
                         <div className={styles.modalTitle}>
                             <h1>{data[0].data.name === undefined ? "Undocumented" : data[0].data.name}</h1>
                             <p>Contact info: {data[0].data.contact_info === undefined ? "Undocumented" : data[0].data.contact_info} </p>
-                            {data[0].data.sublabels[1] === undefined ? "" : <ul>Genres: { data[0].data.sublabels.map((item, i) => {
+                            {data[0].data.sublabels === undefined ? "" : <ul>Sublabel: { data[0].data.sublabels.map((item, i) => {
                             return <li key={i}>{item.name}, </li> })}</ul>}
                         </div>
                     </div>

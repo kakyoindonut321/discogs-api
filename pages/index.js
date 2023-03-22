@@ -57,6 +57,7 @@ export default function Home() {
         {resulting && <Result queries={resulting} onChoosed={fetchDetails} />}
       </main>
       <Mountain></Mountain>
+      <p className={styles.watermark}>Kakyoindonut321</p>
       {modalResult && (
         <Modal data={modalResult} onClose={() => setModalResult(null)} />
       )}

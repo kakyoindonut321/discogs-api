@@ -318,7 +318,18 @@
 
 .modalDesc {
     margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 14px;
+}
+
+.modalLink li a {
+    color: #6fd3b1;
+    text-decoration: none;
+}
+
+.modalLink li a:hover {
+    color: #5aae92;
+    text-decoration: none;
 }
 
 
@@ -326,6 +337,19 @@
 
 .modalTitleImg ul {
     padding-left: 20px;
+}
+
+.watermark {
+    position: absolute;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 100;
+    font-style: italic;
+    font-size: 1vw;
+    bottom: 0;
+    color: #eeeeeeaa;
+    animation: shiny 1s ease-in-out infinite alternate;
+    animation-delay: 3s;
+    z-index: 66;
 }
 
 
@@ -363,6 +387,15 @@
 @keyframes darkening {
     to {
         background-color: #00000080;
+    }
+}
+
+@keyframes shiny {
+    from {
+        text-shadow: 0px 0px 0px white;
+    }
+    to {
+        text-shadow: 0px 0px 4px white;
     }
 }
 
