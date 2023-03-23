@@ -49,7 +49,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.titleScreen}>
-          Discogs API <br /> Search your favorite band, album, or song here
+          Discogs API <br /> <span className={styles.titleSubScreen}>Search your favorite band, album, or song here</span> 
         </h1>
         {/* <p className={styles.titleDisclaimer}>no it's discogs not discord</p> */}
         <Search onSearch={fetchData}></Search>

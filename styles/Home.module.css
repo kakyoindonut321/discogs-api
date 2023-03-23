@@ -3,6 +3,13 @@
 
 /* background */
 
+.mountain {
+    /* position: absolute; */
+    width: 100%;
+    /* height: 100vh; */
+    overflow: hidden;
+}
+
 .mountain svg {
     position: absolute;
     bottom: 0;
@@ -159,6 +166,7 @@
 .card {
     position: relative;
     width: 250px;
+    font-size: 2vw;
     /* height: 300px; */
     margin: 10px;
     padding: 5px;
@@ -411,6 +419,9 @@
         width: 250px;
         padding: 3px;
     }
+    .watermark {
+        font-size: 2vw;
+    }
 }
 
 @media screen and (max-width: 940px) {
@@ -424,6 +435,18 @@
     .card {
         width: 150px;
         padding: 3px;
+    }
+    .titleSubScreen {
+        font-size: 5vw;
+    }
+    .watermark {
+        font-size: 3vw;
+    }
+    .mountain svg {
+        transform: translateY(-50%) scaleY(200%);
+    }
+    .mountain svg:nth-child(1) {
+        background-image: linear-gradient(to bottom, transparent, transparent, grey);
     }
 }
 
@@ -441,6 +464,7 @@
     .card {
         width: 170px;
         padding: 3px;
+        font-size: 3vw;
     }
 }
 
@@ -455,5 +479,6 @@
     .card {
         width: 120px;
         padding: 3px;
+        font-size: 4vw;
     }
 }
